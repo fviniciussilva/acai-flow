@@ -1,19 +1,12 @@
 import flet as ft
 
 
+def adicionar_ao_carrinho(e):
+    print("Produto adicionado ao carrinho!")
+
+
 def main(page: ft.Page):
     page.title = "Açaí Flow"
-
-    produtos = [
-        {
-            "nome": "Açaí 300ml",
-            "preco": 21.90,
-        },
-        {
-            "nome": "Açaí 500ml",
-            "preco": 31.90,
-        },
-    ]
 
     page.add(
         ft.Text(
@@ -23,10 +16,9 @@ def main(page: ft.Page):
         )
     )
 
-    for produto in produtos:
-        page.add(
-            ft.Text(
-                f"{produto['nome']} - R$ {produto['preco']:.2f}"
-            )
-        )
-        page.update()
+    page.add(
+    ft.ElevatedButton(
+    "Adicionar ao carrinho",
+    on_click=adicionar_ao_carrinho,
+    )
+    )
