@@ -1,8 +1,13 @@
 import flet as ft
 
+carrinho = []
 
-def adicionar_ao_carrinho(e):
-    print("Produto adicionado ao carrinho!")
+produtos = [
+    "Açaí 300ml",
+    "Açaí 500ml",
+    "Açaí 700ml",
+    "Açaí 2 litros"
+]
 
 
 def main(page: ft.Page):
@@ -16,9 +21,11 @@ def main(page: ft.Page):
         )
     )
 
-    page.add(
-    ft.ElevatedButton(
-    "Adicionar ao carrinho",
-    on_click=adicionar_ao_carrinho,
-    )
-    )
+    for produto in produtos:
+        page.add(
+            ft.Text(produto),
+            ft.ElevatedButton(
+                "Adicionar",
+                on_click=lambda e: carrinho.append(produto)
+            )
+        )
