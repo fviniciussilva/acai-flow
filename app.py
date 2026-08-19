@@ -24,14 +24,12 @@ def main(page: ft.Page):
     texto_carrinho = ft.Text("Carrinho vazio")
     lista_carrinho = ft.Column()
 
-    # Atualiza a parte visual sempre que um item é adicionado.
     def atualizar_carrinho():
         texto_carrinho.value = f"Itens no carrinho: {len(carrinho)}"
         lista_carrinho.controls.clear()
 
         for item in carrinho:
             lista_carrinho.controls.append(ft.Text(item))
-
         page.update()
 
     def adicionar_ao_carrinho(produto):
@@ -57,8 +55,8 @@ def main(page: ft.Page):
                     ft.Text(produto),
                     ft.ElevatedButton(
                         "Adicionar",
-                        on_click=lambda e, produto=produto: adicionar_ao_carrinho(produto),
-                    ),
+                        on_click=lambda _, produto=produto: adicionar_ao_carrinho(produto)
+                    )
                 ]
             )
         )
@@ -71,8 +69,10 @@ def main(page: ft.Page):
                     ft.Text(complemento),
                     ft.ElevatedButton(
                         "Adicionar",
-                        on_click=lambda e, complemento=complemento: adicionar_ao_carrinho(complemento),
-                    ),
+                        on_click=lambda _, complemento=complemento: adicionar_ao_carrinho(complemento)
+                    )
                 ]
             )
         )
+
+ft.run(main)
