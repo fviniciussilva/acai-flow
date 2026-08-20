@@ -23,7 +23,7 @@ def main(page: ft.Page):
     page.title = "Açaí Flow"
     page.bgcolor = "#530146"
     page.padding = 24
-
+    
     texto_carrinho = ft.Text("Carrinho vazio")
     lista_carrinho = ft.Column()
     produto_escolhido = None
@@ -32,7 +32,6 @@ def main(page: ft.Page):
 
     def selecionar_produto(produto):
         nonlocal produto_escolhido
-
         produto_escolhido = produto
         texto_produto_escolhido.value = f"Produto selecionado: {produto}"
         page.update()
